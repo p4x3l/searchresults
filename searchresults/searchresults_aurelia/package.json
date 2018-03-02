@@ -1,0 +1,12 @@
+{
+  "name": "searchresults_aurelia",
+  "version": "0.0.0",
+  "description": "searchresults_aurelia",
+  "main": "app.js",
+  "author": {
+    "name": "david"
+  },
+  "devDependencies": {
+    "@types/node": "^6.0.87"
+  }
+}
