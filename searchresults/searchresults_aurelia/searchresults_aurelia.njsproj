@@ -12,7 +12,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>540488eb-e64a-4313-88bf-7531ea639b9f</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>server.ts</StartupFile>
+    <StartupFile>aurelia_project\tasks\run.ts</StartupFile>
     <StartWebBrowser>True</StartWebBrowser>
     <SearchPath>
     </SearchPath>
@@ -34,10 +34,75 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="server.ts" />
+    <Content Include=".editorconfig" />
+    <Content Include=".gitignore" />
+    <Content Include="aurelia_project\aurelia.json" />
+    <Content Include="aurelia_project\generators\attribute.json" />
+    <Content Include="aurelia_project\generators\binding-behavior.json" />
+    <Content Include="aurelia_project\generators\component.json" />
+    <Content Include="aurelia_project\generators\element.json" />
+    <Content Include="aurelia_project\generators\generator.json" />
+    <Content Include="aurelia_project\generators\task.json" />
+    <Content Include="aurelia_project\generators\value-converter.json" />
+    <Content Include="aurelia_project\tasks\build.json" />
+    <Content Include="aurelia_project\tasks\run.json" />
+    <Content Include="aurelia_project\tasks\test.json" />
+    <Content Include="favicon.ico" />
+    <Content Include="index.html" />
+    <Content Include="package-lock.json" />
+    <Content Include="src\app.html" />
     <Content Include="tsconfig.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Content Include="tslint.json" />
+    <Content Include="yarn.lock" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="karma.conf.js" />
+    <Compile Include="test\aurelia-karma.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="aurelia_project\" />
+    <Folder Include="aurelia_project\environments\" />
+    <Folder Include="aurelia_project\generators\" />
+    <Folder Include="aurelia_project\tasks\" />
+    <Folder Include="custom_typings\" />
+    <Folder Include="scripts\" />
+    <Folder Include="src\" />
+    <Folder Include="src\resources\" />
+    <Folder Include="src\resources\attributes\" />
+    <Folder Include="src\resources\binding-behaviors\" />
+    <Folder Include="src\resources\elements\" />
+    <Folder Include="src\resources\value-converters\" />
+    <Folder Include="test\" />
+    <Folder Include="test\unit\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="aurelia_project\environments\dev.ts" />
+    <TypeScriptCompile Include="aurelia_project\environments\prod.ts" />
+    <TypeScriptCompile Include="aurelia_project\environments\stage.ts" />
+    <TypeScriptCompile Include="aurelia_project\generators\attribute.ts" />
+    <TypeScriptCompile Include="aurelia_project\generators\binding-behavior.ts" />
+    <TypeScriptCompile Include="aurelia_project\generators\component.ts" />
+    <TypeScriptCompile Include="aurelia_project\generators\element.ts" />
+    <TypeScriptCompile Include="aurelia_project\generators\generator.ts" />
+    <TypeScriptCompile Include="aurelia_project\generators\task.ts" />
+    <TypeScriptCompile Include="aurelia_project\generators\value-converter.ts" />
+    <TypeScriptCompile Include="aurelia_project\tasks\build.ts" />
+    <TypeScriptCompile Include="aurelia_project\tasks\copy-files.ts" />
+    <TypeScriptCompile Include="aurelia_project\tasks\lint.ts" />
+    <TypeScriptCompile Include="aurelia_project\tasks\process-css.ts" />
+    <TypeScriptCompile Include="aurelia_project\tasks\process-markup.ts" />
+    <TypeScriptCompile Include="aurelia_project\tasks\run.ts" />
+    <TypeScriptCompile Include="aurelia_project\tasks\test.ts" />
+    <TypeScriptCompile Include="aurelia_project\tasks\transpile.ts" />
+    <TypeScriptCompile Include="aurelia_project\tasks\watch.ts" />
+    <TypeScriptCompile Include="src\app.ts" />
+    <TypeScriptCompile Include="src\environment.ts" />
+    <TypeScriptCompile Include="src\main.ts" />
+    <TypeScriptCompile Include="src\resources\index.ts" />
+    <TypeScriptCompile Include="test\unit\app.spec.ts" />
+    <TypeScriptCompile Include="test\unit\setup.ts" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

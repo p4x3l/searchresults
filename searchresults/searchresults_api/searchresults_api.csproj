@@ -9,7 +9,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Google.Apis" Version="1.32.2" />
+    <PackageReference Include="Google.Apis.Customsearch.v1" Version="1.32.2.1146" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
+    <PackageReference Include="RestSharp" Version="106.2.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>

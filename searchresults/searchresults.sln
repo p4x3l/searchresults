@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "searchresults_api", "search
 EndProject
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "searchresults_aurelia", "searchresults_aurelia\searchresults_aurelia.njsproj", "{540488EB-E64A-4313-88BF-7531EA639B9F}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "searchresults_reactapp", "searchresults_reactapp\searchresults_reactapp.njsproj", "{5A78C1A7-941E-4150-A71B-B15C6F2524C9}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "searchresult_reactapp", "searchresult_reactapp\searchresult_reactapp.njsproj", "{2CC5C7D8-6FC2-4FBA-AB52-FFD6D303757B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{540488EB-E64A-4313-88BF-7531EA639B9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{540488EB-E64A-4313-88BF-7531EA639B9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{540488EB-E64A-4313-88BF-7531EA639B9F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5A78C1A7-941E-4150-A71B-B15C6F2524C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5A78C1A7-941E-4150-A71B-B15C6F2524C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5A78C1A7-941E-4150-A71B-B15C6F2524C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5A78C1A7-941E-4150-A71B-B15C6F2524C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CC5C7D8-6FC2-4FBA-AB52-FFD6D303757B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CC5C7D8-6FC2-4FBA-AB52-FFD6D303757B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CC5C7D8-6FC2-4FBA-AB52-FFD6D303757B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CC5C7D8-6FC2-4FBA-AB52-FFD6D303757B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
