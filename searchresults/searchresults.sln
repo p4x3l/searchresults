@@ -9,6 +9,8 @@ Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "searchresults_aurelia", "se
 EndProject
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "searchresult_reactapp", "searchresult_reactapp\searchresult_reactapp.njsproj", "{2CC5C7D8-6FC2-4FBA-AB52-FFD6D303757B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "searchresults_api.Test", "searchresults_api.Test\searchresults_api.Test.csproj", "{D865D8B2-F1EB-4E79-AEF9-308F5B00FC65}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{2CC5C7D8-6FC2-4FBA-AB52-FFD6D303757B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CC5C7D8-6FC2-4FBA-AB52-FFD6D303757B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CC5C7D8-6FC2-4FBA-AB52-FFD6D303757B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D865D8B2-F1EB-4E79-AEF9-308F5B00FC65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D865D8B2-F1EB-4E79-AEF9-308F5B00FC65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D865D8B2-F1EB-4E79-AEF9-308F5B00FC65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D865D8B2-F1EB-4E79-AEF9-308F5B00FC65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

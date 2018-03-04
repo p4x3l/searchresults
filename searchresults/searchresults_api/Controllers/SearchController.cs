@@ -27,5 +27,12 @@ namespace searchresults_api.Controllers
             var result = await _searchService.GetNumberOfEbayHits(searchterms);
             return Ok(result);
         }
+
+        [HttpGet("yahoo")]
+        public async Task<IActionResult> GetYahooSearchCount(string searchterms)
+        {
+            var result = await _searchService.GetNumberOfYahooHits(searchterms);
+            return Ok(result);
+        }
     }
 }

@@ -3,6 +3,7 @@ using Google.Apis.Services;
 using Microsoft.Extensions.Options;
 using searchresults_api.Configuration;
 using searchresults_api.Contracts;
+using System.Threading.Tasks;
 using static Google.Apis.Customsearch.v1.CseResource;
 
 namespace searchresults_api.Factory
@@ -21,12 +22,14 @@ namespace searchresults_api.Factory
 
         }
 
-        public ListRequest CreateRequest(string query)
+        public async Task<long?> ExecuteRequest(string query)
         {
             var listRequest = client.Cse.List(query);
             listRequest.Cx = engineId;
 
-            return listRequest;
+            var results = await listRequest.ExecuteAsync();
+
+            return results.SearchInformation.TotalResults;
         }
     }
 }

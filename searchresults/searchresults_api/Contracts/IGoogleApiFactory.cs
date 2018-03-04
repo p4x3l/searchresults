@@ -1,9 +1,9 @@
-﻿using static Google.Apis.Customsearch.v1.CseResource;
+﻿using System.Threading.Tasks;
 
 namespace searchresults_api.Contracts
 {
     public interface IGoogleApiFactory
     {
-        ListRequest CreateRequest(string query);
+        Task<long?> ExecuteRequest(string query);
     }
 }

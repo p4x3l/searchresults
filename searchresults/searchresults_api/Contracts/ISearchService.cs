@@ -8,7 +8,7 @@ namespace searchresults_api.Contracts
     {
         Task<List<SearchCounter>> GetNumberOfGoogleHits(string searchTermsString);
 
-        Task<List<SearchCounter>> GetNumberOfBingHits(string searchterm);
+        Task<List<SearchCounter>> GetNumberOfYahooHits(string searchTermsString);
 
         Task<List<SearchCounter>> GetNumberOfEbayHits(string searchTermsString);
     }

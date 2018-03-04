@@ -28,16 +28,30 @@ namespace searchresults_api
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
             });
 
-            // 
+            // Setup Google Api configuration
             services.Configure<GoogleApiSettings>(options =>
             {
                 options.ApiKey = Configuration.GetSection("GoogleApi:ApiKey").Value;
                 options.EngineId = Configuration.GetSection("GoogleApi:EngineId").Value;
             });
 
+            // Setup Ebay Api configuration
+            services.Configure<EbayApiConfiguration>(options =>
+            {
+                options.BaseUrl = Configuration.GetSection("EbayApi:BaseUrl").Value;
+                options.AppId = Configuration.GetSection("EbayApi:AppId").Value;
+            });
+
+            //Setup Yahoo configuration
+            services.Configure<YahooConfiguration>(options =>
+            {
+                options.SearchUri = Configuration.GetSection("Yahoo:SearchUri").Value;
+            });
+
             services.AddTransient<ISearchService, SearchService>();
 
             services.AddTransient<IRestClientFactory, RestClientFactory>();
+            services.AddTransient<IYahooRequestFactory, YahooRequestFactory>();
             services.AddTransient<IGoogleApiFactory, GoogleApiFactory>();
 
             services.AddMvc();
@@ -56,8 +70,6 @@ namespace searchresults_api
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
-
-
 
             app.UseMvc();
         }

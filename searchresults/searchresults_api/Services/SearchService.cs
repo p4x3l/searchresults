@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
+using searchresults_api.Configuration;
 using searchresults_api.Contracts;
 using searchresults_api.Models;
 using System.Collections.Generic;
@@ -13,19 +15,21 @@ namespace searchresults_api.Services
     {
         private readonly IGoogleApiFactory _googleApiFactory;
         private readonly IRestClientFactory _restClientFactory;
-        private readonly IConfiguration _configuration;
+        private readonly IYahooRequestFactory _yahooRequestFactory;
+        private readonly IOptions<EbayApiConfiguration> _ebaySettings;
 
-        public SearchService(IConfiguration configuration, IGoogleApiFactory googleApiFactory, IRestClientFactory restClientFactory)
+        public SearchService(IGoogleApiFactory googleApiFactory, IRestClientFactory restClientFactory, IYahooRequestFactory yahooRequestFactory, IOptions<EbayApiConfiguration> ebaySettings)
         {
             _googleApiFactory = googleApiFactory;
             _restClientFactory = restClientFactory;
-            _configuration = configuration;
+            _yahooRequestFactory = yahooRequestFactory;
+            _ebaySettings = ebaySettings;
         }
 
         public async Task<List<SearchCounter>> GetNumberOfEbayHits(string searchTermsString)
         {
             // Fetch using rest call
-            var client = _restClientFactory.Create(_configuration.GetSection("EbayApi:BaseUrl").Value);
+            var client = _restClientFactory.Create(_ebaySettings.Value.BaseUrl);
 
             var searchTermsList = searchTermsString.Split(" ");
 
@@ -41,7 +45,7 @@ namespace searchresults_api.Services
                         "&RESPONSE-DATA-FORMAT=JSON" +
                         "&REST-PAYLOAD" +
                         "&keywords={1}",
-                        _configuration.GetSection("EbayApi:AppId").Value,
+                        _ebaySettings.Value.AppId,
                         searchterm),
                     RestSharp.Method.GET);
 
@@ -54,7 +58,7 @@ namespace searchresults_api.Services
             return searchCountList;
         }
 
-        public async Task<List<SearchCounter>> GetNumberOfBingHits(string searchTermsString)
+        public async Task<List<SearchCounter>> GetNumberOfYahooHits(string searchTermsString)
         {
             // Fetch using httpclient and regex
             var searchTermsList = searchTermsString.Split(" ");
@@ -63,16 +67,19 @@ namespace searchresults_api.Services
 
             foreach (var searchterm in searchTermsList)
             {
-                using (HttpClient client = new HttpClient())
-                using (HttpResponseMessage response = await client.GetAsync(string.Format("{0}?p={1}", _configuration.GetSection("Yahoo:SearchUri").Value, searchterm)))
-                using (HttpContent content = response.Content)
-                {
-                    string result = await content.ReadAsStringAsync();
+                var result = await _yahooRequestFactory.ExecuteRequest(searchterm);
 
-                    Regex.Match
+                var numberOfHits = Regex.Match(result, @"(\d{1,3}(?:,\d{1,3})*) results").Groups[1].Value.Replace(",", "");
+
+                // default set numberOfHits if not found
+                if (numberOfHits.Length < 1)
+                {
+                    numberOfHits = "0";
                 }
+
+                searchCountList.Add(new SearchCounter { SearchTerm = searchterm, SearchCount = long.Parse(numberOfHits) });
             }
-            throw new System.NotImplementedException();
+            return searchCountList;
         }
 
         public async Task<List<SearchCounter>> GetNumberOfGoogleHits(string searchTermsString)
@@ -84,9 +91,9 @@ namespace searchresults_api.Services
 
             foreach (var searchterm in searchTermsList)
             {
-                var request = _googleApiFactory.CreateRequest(searchterm);
-                var results = await request.ExecuteAsync();
-                searchCountList.Add(new SearchCounter { SearchTerm = searchterm, SearchCount = results.SearchInformation.TotalResults });
+                var numberOfHits = await _googleApiFactory.ExecuteRequest(searchterm);
+                
+                searchCountList.Add(new SearchCounter { SearchTerm = searchterm, SearchCount = numberOfHits.Value });
             }
 
             return searchCountList;
