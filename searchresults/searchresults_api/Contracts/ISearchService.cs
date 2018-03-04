@@ -6,10 +6,10 @@ namespace searchresults_api.Contracts
 {
     public interface ISearchService
     {
-        Task<List<SearchCounter>> GetNumberOfGoogleHits(string searchTermsString);
+        Task<List<SearchCounter>> GetNumberOfGoogleHits(IEnumerable<string> searchterms);
 
-        Task<List<SearchCounter>> GetNumberOfYahooHits(string searchTermsString);
+        Task<List<SearchCounter>> GetNumberOfYahooHits(IEnumerable<string> searchterms);
 
-        Task<List<SearchCounter>> GetNumberOfEbayHits(string searchTermsString);
+        Task<List<SearchCounter>> GetNumberOfEbayHits(IEnumerable<string> searchterms);
     }
 }

@@ -1,3 +1,7 @@
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -5,10 +9,6 @@ using RestSharp;
 using searchresults_api.Configuration;
 using searchresults_api.Contracts;
 using searchresults_api.Services;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
-using static Google.Apis.Customsearch.v1.CseResource;
 
 namespace searchresults_api.Test
 {
@@ -31,7 +31,7 @@ namespace searchresults_api.Test
             SearchService service = new SearchService(googleApiFactory.Object, restClientFactory.Object, yahooRequestFactory.Object, ebayOptions);
 
             // Act
-            string searchTerms = "google test search";
+            List<string> searchTerms = new List<string> { "google", "test", "search" };
             var result = await service.GetNumberOfGoogleHits(searchTerms);
 
             // Assert
@@ -60,7 +60,7 @@ namespace searchresults_api.Test
             SearchService service = new SearchService(googleApiFactory.Object, restClientFactory.Object, yahooRequestFactory.Object, ebayOptions);
 
             // Act
-            string searchTerms = "ebay test search";
+            List<string> searchTerms =  new List<string> { "ebay", "test", "search" };
             var result = await service.GetNumberOfEbayHits(searchTerms);
 
             // Assert
@@ -89,7 +89,7 @@ namespace searchresults_api.Test
             SearchService service = new SearchService(googleApiFactory.Object, restClientFactory.Object, yahooRequestFactory.Object, ebayOptions);
 
             // Act
-            string searchTerms = "yahoo test search";
+            List<string> searchTerms = new List<string> { "yahoo", "test", "search" };
             var result = await service.GetNumberOfYahooHits(searchTerms);
 
             // Assert

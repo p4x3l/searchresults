@@ -1,13 +1,11 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using searchresults_api.Configuration;
 using searchresults_api.Contracts;
 using searchresults_api.Models;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace searchresults_api.Services
 {
@@ -26,16 +24,14 @@ namespace searchresults_api.Services
             _ebaySettings = ebaySettings;
         }
 
-        public async Task<List<SearchCounter>> GetNumberOfEbayHits(string searchTermsString)
+        public async Task<List<SearchCounter>> GetNumberOfEbayHits(IEnumerable<string> searchterms)
         {
             // Fetch using rest call
             var client = _restClientFactory.Create(_ebaySettings.Value.BaseUrl);
 
-            var searchTermsList = searchTermsString.Split(" ");
-
             var searchCountList = new List<SearchCounter>();
 
-            foreach (var searchterm in searchTermsList)
+            foreach (var searchterm in searchterms)
             {
                 var request = _restClientFactory.CreateRequest(
                     string.Format(
@@ -58,14 +54,12 @@ namespace searchresults_api.Services
             return searchCountList;
         }
 
-        public async Task<List<SearchCounter>> GetNumberOfYahooHits(string searchTermsString)
+        public async Task<List<SearchCounter>> GetNumberOfYahooHits(IEnumerable<string> searchterms)
         {
             // Fetch using httpclient and regex
-            var searchTermsList = searchTermsString.Split(" ");
-
             var searchCountList = new List<SearchCounter>();
 
-            foreach (var searchterm in searchTermsList)
+            foreach (var searchterm in searchterms)
             {
                 var result = await _yahooRequestFactory.ExecuteRequest(searchterm);
 
@@ -82,14 +76,12 @@ namespace searchresults_api.Services
             return searchCountList;
         }
 
-        public async Task<List<SearchCounter>> GetNumberOfGoogleHits(string searchTermsString)
+        public async Task<List<SearchCounter>> GetNumberOfGoogleHits(IEnumerable<string> searchterms)
         {
             // Fetch using nuget package
-            var searchTermsList = searchTermsString.Split(" ");
-
             var searchCountList = new List<SearchCounter>();
 
-            foreach (var searchterm in searchTermsList)
+            foreach (var searchterm in searchterms)
             {
                 var numberOfHits = await _googleApiFactory.ExecuteRequest(searchterm);
                 

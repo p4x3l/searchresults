@@ -1,8 +1,8 @@
-﻿using Microsoft.Extensions.Options;
+﻿using System.Net.Http;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Options;
 using searchresults_api.Configuration;
 using searchresults_api.Contracts;
-using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace searchresults_api.Factory
 {

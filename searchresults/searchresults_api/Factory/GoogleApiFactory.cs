@@ -1,10 +1,9 @@
-﻿using Google.Apis.Customsearch.v1;
+﻿using System.Threading.Tasks;
+using Google.Apis.Customsearch.v1;
 using Google.Apis.Services;
 using Microsoft.Extensions.Options;
 using searchresults_api.Configuration;
 using searchresults_api.Contracts;
-using System.Threading.Tasks;
-using static Google.Apis.Customsearch.v1.CseResource;
 
 namespace searchresults_api.Factory
 {
