@@ -1,5 +1,24 @@
 .content {
-  background-color: '#FFF';
+  flex: 1 1 auto;
+  background-color: #FFF;
   width: 80rem;
-  margin: 3rem auto;
+  padding: 2rem;
+  margin: 1rem auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media (max-width: 80rem) {
+  .content {
+    width: auto;
+    margin: 0;
+  }
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+
+.section-header {
+  font-weight: bold;
+  font-size: 24px;
 }

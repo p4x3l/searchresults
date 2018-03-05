@@ -4,7 +4,7 @@ import {
     UPDATE_SEARCH_RESULTS_FAILED,
 } from '../constants/searchTypes';
 
-import * as searchService from '../services/searchServiceMock';
+import * as searchService from '../services/searchService';
 
 export const fetchSearchResults = () => (
     {
@@ -25,11 +25,11 @@ export const handleSearchResultError = () => (
     }
 );
 
-export const searchAllProviders = () => (
+export const searchAllProviders = (searchTerms) => (
     (dispatch) => {
         dispatch(fetchSearchResults());
 
-        searchService.searchAllProviders()
+        searchService.searchAllProviders(searchTerms)
             .then((response) => {
                 dispatch(storeSearchResults(response));
             })
