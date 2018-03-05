@@ -31,6 +31,7 @@
         "name": "vendor-bundle.js",
         "prepend": [
           "node_modules/bluebird/js/browser/bluebird.core.js",
+          "node_modules/tether/dist/js/tether.min.js",
           {
             "path": "node_modules/aurelia-cli/lib/resources/scripts/configure-bluebird-no-long-stacktraces.js",
             "env": "stage & prod"
@@ -79,7 +80,17 @@
             "main": "aurelia-testing",
             "env": "dev"
           },
-          "text"
+          "text",
+          "jquery",
+          {
+            "name": "bootstrap",
+            "path": "../node_modules/bootstrap/dist",
+            "main": "js/bootstrap.bundle.min",
+            "deps": ["jquery"],
+            "resources": [
+              "css/bootstrap.css"
+            ]
+          }
         ]
       }
     ],

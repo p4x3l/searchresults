@@ -1,3 +1,10 @@
 <template>
-  <h1>${message}</h1>
+  <require from="bootstrap/css/bootstrap.css"></require>
+  <require from="./app.css"></require>
+  <require from="./components/app-header/app-header.html"></require>
+  <require from="./components/app-content/app-content.html"></require>
+  <div class="app">
+    <app-header title="Search Results"></app-header>
+    <app-content></app-content>
+  </div>
 </template>
