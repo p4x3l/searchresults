@@ -30,6 +30,6 @@ const data = [
 
 export const searchAllProviders = (searchTerms) => (
   new Promise(function(resolve, reject) {
-    setTimeout(resolve, 100, data);
+    setTimeout(resolve, 2000, data);
   })
 );

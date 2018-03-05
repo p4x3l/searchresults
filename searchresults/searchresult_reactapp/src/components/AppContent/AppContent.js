@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { PulseLoader } from 'halogenium';
 
 import './AppContent.css';
 
@@ -37,6 +38,16 @@ class AppContent extends Component {
           </div>
           <button className="btn btn-primary" onClick={this.handleSubmit}>Search</button>
         </div>
+        {
+          this.props.loading ? (
+            <PulseLoader color="#26A65B" size="16px" margin="4px"/>
+          ) : null
+        }
+        {
+          this.props.error ? (
+            <div>{this.props.error}</div>
+          ) : null
+        }
         {
           (this.props.searchResults || []).length > 0 ? (
             <div className="section">

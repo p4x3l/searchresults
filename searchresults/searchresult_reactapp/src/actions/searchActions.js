@@ -5,6 +5,7 @@ import {
 } from '../constants/searchTypes';
 
 import * as searchService from '../services/searchService';
+// import * as searchService from '../services/searchServiceMock';
 
 export const fetchSearchResults = () => (
     {
