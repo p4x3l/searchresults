@@ -48,6 +48,15 @@ namespace searchresults_api
                 options.SearchUri = Configuration.GetSection("Yahoo:SearchUri").Value;
             });
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
+
             services.AddTransient<ISearchService, SearchService>();
 
             services.AddTransient<IRestClientFactory, RestClientFactory>();
@@ -64,7 +73,7 @@ namespace searchresults_api
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors("CorsPolicy");
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
