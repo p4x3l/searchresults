@@ -1,0 +1,162 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>searchresults_aureliaapp</Name>
+    <RootNamespace>searchresults_aureliaapp</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>1309ad5d-2647-493b-8749-a8210f6d89e9</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>
+    </StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <NodejsPort>1337</NodejsPort>
+    <StartWebBrowser>true</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="aurelia_project\" />
+    <Folder Include="aurelia_project\environments\" />
+    <Folder Include="aurelia_project\generators\" />
+    <Folder Include="aurelia_project\tasks\" />
+    <Folder Include="obj\" />
+    <Folder Include="obj\Debug\" />
+    <Folder Include="scripts\" />
+    <Folder Include="src\" />
+    <Folder Include="src\components\" />
+    <Folder Include="src\components\appContent\" />
+    <Folder Include="src\components\appHeader\" />
+    <Folder Include="src\components\searchResults\" />
+    <Folder Include="src\resources\" />
+    <Folder Include="src\resources\attributes\" />
+    <Folder Include="src\resources\binding-behaviors\" />
+    <Folder Include="src\resources\elements\" />
+    <Folder Include="src\resources\value-converters\" />
+    <Folder Include="src\services\" />
+    <Folder Include="test\" />
+    <Folder Include="test\unit\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="aurelia_project\environments\dev.js" />
+    <Compile Include="aurelia_project\environments\prod.js" />
+    <Compile Include="aurelia_project\environments\stage.js" />
+    <Compile Include="aurelia_project\generators\attribute.js" />
+    <Compile Include="aurelia_project\generators\binding-behavior.js" />
+    <Compile Include="aurelia_project\generators\component.js" />
+    <Compile Include="aurelia_project\generators\element.js" />
+    <Compile Include="aurelia_project\generators\generator.js" />
+    <Compile Include="aurelia_project\generators\task.js" />
+    <Compile Include="aurelia_project\generators\value-converter.js" />
+    <Compile Include="aurelia_project\tasks\build.js" />
+    <Compile Include="aurelia_project\tasks\copy-files.js" />
+    <Compile Include="aurelia_project\tasks\lint.js" />
+    <Compile Include="aurelia_project\tasks\process-css.js" />
+    <Compile Include="aurelia_project\tasks\process-markup.js" />
+    <Compile Include="aurelia_project\tasks\run.js" />
+    <Compile Include="aurelia_project\tasks\test.js" />
+    <Compile Include="aurelia_project\tasks\transpile.js" />
+    <Compile Include="aurelia_project\tasks\watch.js" />
+    <Compile Include="karma.conf.js" />
+    <Compile Include="scripts\app-bundle.js" />
+    <Compile Include="scripts\vendor-bundle.js" />
+    <Compile Include="src\app.js" />
+    <Compile Include="src\components\appContent\appContent.js" />
+    <Compile Include="src\components\appHeader\appHeader.js" />
+    <Compile Include="src\components\searchResults\searchResults.js" />
+    <Compile Include="src\environment.js" />
+    <Compile Include="src\main.js" />
+    <Compile Include="src\resources\index.js" />
+    <Compile Include="src\services\searchService.js" />
+    <Compile Include="src\services\searchServiceMock.js" />
+    <Compile Include="test\aurelia-karma.js" />
+    <Compile Include="test\unit\app.spec.js" />
+    <Compile Include="test\unit\setup.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".babelrc" />
+    <Content Include=".editorconfig" />
+    <Content Include=".eslintrc.json" />
+    <Content Include=".gitignore" />
+    <Content Include="aurelia_project\aurelia.json" />
+    <Content Include="aurelia_project\generators\attribute.json" />
+    <Content Include="aurelia_project\generators\binding-behavior.json" />
+    <Content Include="aurelia_project\generators\component.json" />
+    <Content Include="aurelia_project\generators\element.json" />
+    <Content Include="aurelia_project\generators\generator.json" />
+    <Content Include="aurelia_project\generators\task.json" />
+    <Content Include="aurelia_project\generators\value-converter.json" />
+    <Content Include="aurelia_project\tasks\build.json" />
+    <Content Include="aurelia_project\tasks\run.json" />
+    <Content Include="aurelia_project\tasks\test.json" />
+    <Content Include="favicon.ico" />
+    <Content Include="index.html" />
+    <Content Include="jsconfig.json" />
+    <Content Include="package.json" />
+    <Content Include="scripts\app-bundle.js.map" />
+    <Content Include="scripts\vendor-bundle.js.map" />
+    <Content Include="src\app.css" />
+    <Content Include="src\app.html" />
+    <Content Include="src\components\appContent\appContent.css" />
+    <Content Include="src\components\appContent\appContent.html" />
+    <Content Include="src\components\appHeader\appHeader.css" />
+    <Content Include="src\components\appHeader\appHeader.html" />
+    <Content Include="src\components\searchResults\searchResults.css" />
+    <Content Include="src\components\searchResults\searchResults.html" />
+    <Content Include="yarn.lock" />
+  </ItemGroup>
+  <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,3 +1,0 @@
-﻿# searchresults_aurelia
-
-

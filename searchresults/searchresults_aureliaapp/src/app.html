@@ -1,0 +1,16 @@
+<template>
+  <require from="bootstrap/css/bootstrap.css"></require>
+  <require from="./app.css"></require>
+  <require from="./components/appHeader/appHeader.html"></require>
+  <div class="app">
+    <compose
+      view-model="./components/appHeader/appHeader"
+      view="./components/appHeader/appHeader.html"
+      model.bind="{ headerText: 'Search Results' }" >
+    </compose>
+    <compose
+      view-model="./components/appContent/appContent"
+      view="./components/appContent/appContent.html">
+    </compose>
+  </div>
+</template>

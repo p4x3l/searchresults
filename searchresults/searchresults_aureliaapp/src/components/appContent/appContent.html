@@ -1,0 +1,29 @@
+<template>
+  <require from="./appContent.css"></require>
+  <div class="content">
+    <div class="section">
+      <div class="section-header">Search Field</div>
+      <div class="form-group">
+        <label htmlFor="inputSearchTerms">Enter Searchterms</label>
+        <input type="text" class="form-control" id="inputSearchTerms" placeholder="Enter searchterms" value.bind="searchTerms" />
+      </div>
+      <button class="btn btn-primary" click.delegate="search()">Search</button>
+    </div>
+    <div show.bind="isLoading">
+      <div class="spinner"></div>
+    </div>
+    <div show.bind="error">
+      ${error}
+    </div>
+    <div class="section" if.bind="searchResults.length > 0">
+      <div class="section-header">Results from search</div>
+      <div repeat.for="searchResult of searchResults">
+        <compose
+          view-model="../searchResults/searchResults"
+          view="../searchResults/searchResults.html"
+          model.bind="{ searchData: searchResult }" >
+        </compose>
+      </div>
+    </div>
+  </div>
+</template>

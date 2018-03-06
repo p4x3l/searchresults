@@ -1,0 +1,20 @@
+<template>
+  <require from="./searchResults.css"></require>
+  <div class="search-result" key={searchData.searchType}>
+    <div class="search-result-header">
+      ${searchData.searchType}
+    </div>
+    <ul class="list-group">
+      <li repeat.for="searchResult of searchData.searchResults" class="list-group-item">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <label>SearchTerm:</label> ${searchResult.searchTerm}
+          </div>
+          <div class="col-12 col-md-6">
+            <label>SearchCount:</label> ${searchResult.searchCount}
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</tempalte>

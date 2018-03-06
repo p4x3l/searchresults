@@ -1,0 +1,15 @@
+.search-result {
+  margin-bottom: 1rem;
+}
+
+.search-result-header {
+  font-size: 20;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-transform: capitalize;
+}
+
+label {
+  font-weight: bold;
+}
+  
